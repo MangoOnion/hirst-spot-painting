@@ -15,28 +15,26 @@ for i in range(len(colours)):
 # print(len(colour_list))
 
 draw = Turtle()
+spacing = 50
 ypos = -225
 colormode(255)
 colour_num = 0
-draw.speed("fastest")
+draw.speed(1000000)
 draw.penup()
+draw.hideturtle()
 
 def draw_ten():
     for _ in range(10):
         dot_colour = random.choice(colour_list)
         draw.color(dot_colour)
-        draw.dot(20)
-        draw.forward(50)
+        draw.dot(30)
+        draw.forward(spacing)
 
 
 for _ in range(10):
     draw.goto(-225, ypos)
     draw_ten()
-    ypos += 50
-
-draw.setheading(180)
-draw.forward(50)
+    ypos += spacing
 
 screen = Screen()
-screen.screensize(50, 50)
 screen.exitonclick()
