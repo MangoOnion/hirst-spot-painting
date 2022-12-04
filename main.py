@@ -1,7 +1,7 @@
 import colorgram
 from turtle import Turtle, Screen, colormode
 import random
-colours = colorgram.extract('image3.jpg', 1000)
+colours = colorgram.extract('image.jpg', 1000)
 
 colour_list = []
 for i in range(len(colours)):
@@ -15,23 +15,25 @@ for i in range(len(colours)):
 # print(len(colour_list))
 
 draw = Turtle()
-spacing = 50
+spacing = 25
+dimension = 20
 ypos = -225
 colormode(255)
-colour_num = 0
 draw.speed(1000000)
 draw.penup()
 draw.hideturtle()
 
 def draw_ten():
-    for _ in range(10):
+    for _ in range(dimension):
         dot_colour = random.choice(colour_list)
         draw.color(dot_colour)
-        draw.dot(30)
+        # draw.stamp(10)
+        draw.shape("square")
+        draw.stamp()
         draw.forward(spacing)
 
 
-for _ in range(10):
+for _ in range(dimension):
     draw.goto(-225, ypos)
     draw_ten()
     ypos += spacing
